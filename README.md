@@ -1,23 +1,27 @@
 # Operations that you shall use for prod 
 A Basic workflow with node js and mongoDB
 
-# Upcoming (soon) Features:
+# API list: (in progress)
+- API to list all users (Method:GET)
+	- http://localhost:3000/users/all
+- API to get an user's details  (Method:GET)
+	- http://localhost:3000/users/:userId
+- API to create an user (Method:POST)
+	- http://localhost:3000/users
+	- submit user details in request body
+- API to update an user (Method:PUT)
+	- http://localhost:3000/users/:userId
+- API to an user (Method:DELETE)
+	- http://localhost:3000/users/:userId
 
-- Maintainable Configurations
-- Seemless - Encrypted data between mongoDB and business layer
-- Logger interaction - aspects considered
-- TDD (Test Driven Development)
-- Interceptor for APIs
-- sends email on exceptions/errors
-- log viewer for troubleshooting
-- .performance monitoring on each url
-- .	
 
 ## How to use?
-- git clone "https://github.com/RamuRChenchaiah/mongodb-nodejs-crud.git"
+- git clone https://github.com/RamuRChenchaiah/mongodb-nodejs-crud.git
 - cd mongodb-nodejs-crud
 - npm install
 - node bin/www
 - http://localhost:3000
-- --
+- Invoke above APIs as needed from RestClient or your UI
+
+---
  

@@ -17,9 +17,28 @@ var getAllUserDetails = function (req, res) {
 }
 
 var getOneUserDetails = function (req, res) {
-	res.json({
-		"message" : "Retrieved an user's details"
-	})
+	return User.findById(req.params.userId, function (err, user) {
+		if (!err) {
+			logger.info('User info has been retrieved successfully');
+			return res.json({
+				statusCode : 200,
+				user : user
+			});
+		} else {
+			if (err.name == 'ValidationError') {
+				res.json({
+					statusCode : 400,
+					error : 'Validation error'
+				});
+			} else {
+				res.json({
+					statusCode : 500,
+					error : 'Server error'
+				});
+			}
+			logger.error('Internal error(%d): %s', res.statusCode, err.message);
+		}
+	});
 }
 
 var createUserDetails = function (req, res) {
@@ -102,25 +121,33 @@ var updateUserDetails = function (req, res) {
 }
 
 var removeUserDetails = function (req, res) {
-    return User.findById(req.params.userId, function(err, user) {
-      if(!user) {
-        return res.send({ statusCode : 404, error: 'Not found' });
-      }
+	return User.findById(req.params.userId, function (err, user) {
+		if (!user) {
+			return res.send({
+				statusCode : 404,
+				error : 'Not found'
+			});
+		}
 
-      return user.remove(function(err) {
-        if(!err) {
-          logger.info('Removed user successfully');
-          return res.json({ status: 200 });
-        } else {
-          logger.error('Internal error(%d): %s',res.statusCode,err.message);
-          return res.json({ statusCode : 500, error: 'Server error' });
-        }
-      })
-    });
+		return user.remove(function (err) {
+			if (!err) {
+				logger.info('Removed user successfully');
+				return res.json({
+					status : 200
+				});
+			} else {
+				logger.error('Internal error(%d): %s', res.statusCode, err.message);
+				return res.json({
+					statusCode : 500,
+					error : 'Server error'
+				});
+			}
+		})
+	});
 }
 
 exports.getAllUserDetails = getAllUserDetails
-exports.getOneUserDetails = getOneUserDetails
-exports.createUserDetails = createUserDetails
-exports.updateUserDetails = updateUserDetails
-exports.removeUserDetails = removeUserDetails
+	exports.getOneUserDetails = getOneUserDetails
+	exports.createUserDetails = createUserDetails
+	exports.updateUserDetails = updateUserDetails
+	exports.removeUserDetails = removeUserDetails

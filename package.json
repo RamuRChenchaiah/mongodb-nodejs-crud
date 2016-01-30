@@ -1,5 +1,5 @@
 {
-  "name": "m",
+  "name": "mcrud",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,9 +11,9 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
-    "mongoose": "^4.3.6",
-    "mongoose-encryption": "^0.11.1",
+    "mongoose": "^4.3.7",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "winston": "^2.1.1"
   }
 }

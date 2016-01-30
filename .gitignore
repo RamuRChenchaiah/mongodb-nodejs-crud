@@ -1,12 +1,3 @@
+
 node_modules
-npm-debug.log
-coverage.html
-src-cov
-*.log
-.idea/
-.project
-test/coverage/reports/
-coverage/
-test/lcov-report
-report
-static-analysis
+

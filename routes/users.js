@@ -1,19 +1,30 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-var users = require('../src/resources/users_operations.js')
-/* Below CRUD details are self explanatory, I hope */
-router.get('/users/all', users.getAllUserDetails);
-router.get('/users/:userId', users.getOneUserDetails);
+var users = require('../src/resources/users_operations')
 
-router.post('/users', users.createUserDetails);
-router.put('/users/:userId', users.updateUserDetails);
-router.delete('/users/:userId', users.removeUserDetails);
+router.get('/all', function(req, res, next) {
+  users.getAllUserDetails(req, res)
+});
 
+router.get('/:userId', function(req, res, next) {
+  users.getOneUserDetails(req, res)
+});
+
+router.post('/', function(req, res, next) {
+  users.createUserDetails(req, res)
+});
+
+router.put('/:userId', function(req, res, next) {
+  users.updateUserDetails(req, res)
+});
+
+router.delete('/:userId', function(req, res, next) {
+  users.removeUserDetails(req, res)
+});
 
 module.exports = router;

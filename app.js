@@ -56,5 +56,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+var db = require('./db/index')
 module.exports = app;

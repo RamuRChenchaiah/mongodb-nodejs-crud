@@ -24,12 +24,18 @@ A Basic workflow with node js and MongoDB using Mongoose npm
 	- http://localhost:3000/users/:userId
 ![alt text](https://github.com/RamuRChenchaiah/mongodb-nodejs-crud/blob/master/userguide/delete-user.PNG  "Delete an user")
 
+## Pre-requisites:
+```
+1. Install node (version > 4.4.7)
+2. Install mongo DB (Version > 2.6)
+```
+
 
 ## How to use?
 - git clone https://github.com/RamuRChenchaiah/mongodb-nodejs-crud.git
 - cd mongodb-nodejs-crud
 - npm install
-- node bin/www
+- node bin/www   (or)  npm start
 - http://localhost:3000
 - Invoke above APIs as needed from RestClient or your UI
 

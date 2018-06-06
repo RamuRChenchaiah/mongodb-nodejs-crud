@@ -13,7 +13,8 @@ var User = new Schema({
   },
   emailId:  { 
 	type: String,
-	index: true
+	index: true,
+	required: true
   },
   loginId:  { 
 	type: String,

@@ -24,6 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/admin', function(req, res){
+  res.send({"welcome":"all"});
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

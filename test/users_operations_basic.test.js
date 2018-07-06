@@ -19,8 +19,8 @@ after('', function(){
 
 })
 
-describe('Create an user', function() {
-  it('Create user should return successfully.', function(done) {
+describe('User Operations - Basic flow only:', function() {
+  it('should create user successfully.', function(done) {
     var request =  sinon.spy();
     var response = sinon.spy();
     	response = {json: sinon.spy(), send: sinon.spy()};

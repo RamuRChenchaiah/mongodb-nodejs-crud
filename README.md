@@ -44,5 +44,5 @@ A Basic workflow with node js and MongoDB using Mongoose npm
 ## Running Unit Tests:
 ```
 npm install mocha -g
-mocha test
+npm run test
 ``` 

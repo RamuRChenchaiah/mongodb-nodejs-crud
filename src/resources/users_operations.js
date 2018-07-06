@@ -47,25 +47,24 @@ var createUserDetails = function (req, res) {
 			lastName : req.body.lastName,
 			emailId : req.body.emailId,
 			loginId : req.body.loginId,
-			dob : req.body.dob
+			dob : req.body.dob || new Date()
 		});
-
-	user.save(function (err) {
+	return user.save(function (err) {
 		if (!err) {
 			logger.info("User created");
-			res.json({
+			return res.json({
 				stausCode : 200,
 				User : user
 			});
 		} else {
 			logger.error(err);
 			if (err.name == 'ValidationError') {
-				res.json({
+				return res.json({
 					statusCode : 400,
 					error : 'Validation error'
 				});
 			} else {
-				res.json({
+				return res.json({
 					statusCode : 500,
 					error : 'API Server error'
 				});

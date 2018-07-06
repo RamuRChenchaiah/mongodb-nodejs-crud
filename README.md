@@ -40,4 +40,9 @@ A Basic workflow with node js and MongoDB using Mongoose npm
 - Invoke above APIs as needed from RestClient or your UI
 
 ---
- 
+
+## Running Unit Tests:
+```
+npm install mocha -g
+mocha test
+``` 

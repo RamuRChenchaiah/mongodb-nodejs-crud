@@ -102,18 +102,11 @@ var updateUserDetails = function (req, res) {
 					user : user
 				});
 			} else {
-				if (err.name == 'ValidationError') {
-					res.json({
-						statusCode : 400,
-						error : 'Validation error'
-					});
-				} else {
-					res.json({
+					return res.json({
 						statusCode : 500,
 						error : 'Server error'
 					});
-				}
-				logger.error('Internal error(%d): %s', res.statusCode, err.message);
+					logger.error('Internal error(%d): %s', res.statusCode, err.message);
 			}
 		});
 	});

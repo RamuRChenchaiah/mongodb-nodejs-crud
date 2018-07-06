@@ -21,5 +21,27 @@
     "chai": "^4.1.2",
     "nyc": "^12.0.2",
     "sinon": "^5.0.10"
-  }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 80,
+    "statements": 80,
+    "functions": 100,
+    "branches": 60,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.spec.js"
+    ],
+    "ignore-class-method": "methodToIgnore",
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage-reports"
+  }  
 }

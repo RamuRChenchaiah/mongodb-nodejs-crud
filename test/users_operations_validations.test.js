@@ -54,7 +54,7 @@ describe('User Operations :', function() {
     });
   });
 
-  it('should update user information successfully.', function(done) {
+  it('should fail to update user information.', function(done) {
     var request =  sinon.spy();
     var response = sinon.spy();
         response = {json: sinon.spy(), send: sinon.spy()};
@@ -74,7 +74,7 @@ describe('User Operations :', function() {
     });
   });
 
-  it('should remove details of an user.', function(done){
+  it('should fail to remove details of an user.', function(done){
     var request =  sinon.spy();
     var response = sinon.spy();
         response = {json: sinon.spy(), send: sinon.spy()};

@@ -25,17 +25,10 @@ var getOneUserDetails = function (req, res) {
 				user : user
 			});
 		} else {
-			if (err.name == 'ValidationError') {
-				res.json({
-					statusCode : 400,
-					error : 'Validation error'
-				});
-			} else {
-				res.json({
-					statusCode : 500,
-					error : 'Server error'
-				});
-			}
+			return res.json({
+				statusCode : 500,
+				error : 'Server error'
+			});
 			logger.error('Internal error(%d): %s', res.statusCode, err.message);
 		}
 	});
@@ -57,18 +50,10 @@ var createUserDetails = function (req, res) {
 				User : user
 			});
 		} else {
-			logger.error(err);
-			if (err.name == 'ValidationError') {
-				return res.json({
-					statusCode : 400,
-					error : 'Validation error'
-				});
-			} else {
-				return res.json({
-					statusCode : 500,
-					error : 'API Server error'
-				});
-			}
+			return res.json({
+				statusCode : 500,
+				error : 'API Server error'
+			});
 			logger.error('Internal error(%d): %s', res.statusCode, err.message);
 		}
 	});

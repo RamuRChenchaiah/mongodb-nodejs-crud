@@ -59,6 +59,34 @@ describe('User Operations - Basic flow only:', function() {
     var request =  sinon.spy();
     var response = sinon.spy();
         response = {json: sinon.spy(), send: sinon.spy()};
+        var _date = new Date();
+        request =  {
+                        "body": {
+                            firstName : "userFirstNameUpdated",
+                            lastName : "userLastNameUpdated",
+                            emailId : "user@gmail.comUpdated",
+                            loginId : "user@gmail.comUpdated",
+                            dob: _date
+                        },
+                        "params":{
+                            "userId": global.testId
+                        }
+                    }
+    userOperations.updateUserDetails(request, response).then(function(userDetails){
+        expect(request.body.firstName, userDetails.firstName);
+        expect(request.body.lastName, userDetails.lastName);
+        expect(request.body.emailId, userDetails.emailId);
+        expect(request.body.loginId, userDetails.loginId);
+        expect(_date, userDetails.dob);
+        global.testId = userDetails._id;
+        done();
+    });
+  });
+
+  it('should update user information successfully.', function(done) {
+    var request =  sinon.spy();
+    var response = sinon.spy();
+        response = {json: sinon.spy(), send: sinon.spy()};
         request =  {
                         "body": {
                             firstName : "userFirstNameUpdated"

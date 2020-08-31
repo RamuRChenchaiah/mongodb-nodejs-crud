@@ -35,7 +35,7 @@ A Basic workflow with node js and MongoDB using Mongoose npm
 - git clone https://github.com/RamuRChenchaiah/mongodb-nodejs-crud.git
 - cd mongodb-nodejs-crud
 - npm install
-- node bin/www   (or)  npm start
+- node bin/www   (or)  npm run start
 - http://localhost:3000
 - Invoke above APIs as needed from RestClient or your UI
 
